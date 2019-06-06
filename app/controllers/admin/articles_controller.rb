@@ -28,6 +28,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def destroy
+    @article.destroy
+    redirect_to admin_root_path
   end
 
   private
