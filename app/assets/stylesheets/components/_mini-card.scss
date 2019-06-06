@@ -1,0 +1,26 @@
+.mini-card {
+  padding-top: 2rem;
+  .image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+  }
+  .category {
+
+  }
+  .title {
+    font-size: 24px;
+  }
+  /* Noir et blanc */
+  .grayscale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+  }
+  .grayscale:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+}
+

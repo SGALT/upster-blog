@@ -1,0 +1,36 @@
+.top-five {
+  h2 {
+    margin-bottom: 0px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.top-card {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 2%;
+  display: flex;
+  height: 18.3%;
+  align-items: center;
+  color: black;
+  .rank {
+    width: 8%;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .thumbnail {
+    width: 20%;
+    height: 65px;
+  }
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  .title {
+    width: 72%;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+}

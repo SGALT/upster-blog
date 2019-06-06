@@ -1,0 +1,15 @@
+<div class="container">
+  <%= simple_form_for [:admin, @article] do |f| %>
+    <%= @article.errors.full_messages.join(', ') %>
+    <%= f.input :title, label: 'Titre' %>
+    <%= f.input :category, label: 'Catégorie' %>
+    <%= f.input :sub_category, label: 'Sous-catégorie' %>
+    <%= f.input :content, as: :trix_editor, label: 'Contenu' %>
+    <%= f.input :summary, label: 'Résumé' %>
+    <%= f.input :image %>
+    <%#= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, class: 'btn btn-danger btn-block' %>
+  <% end %>
+<br>
+  <%= link_to "Retour Gestion", admin_root_path, class: 'btn btn-light btn-block' %>
+</div>
