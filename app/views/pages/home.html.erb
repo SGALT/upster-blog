@@ -1,2 +1,68 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <!-- <h1 class="text-center"> -->
+      <!-- UPSTER : Toute l'actu sur les startups & l'Entrepreunariat -->
+    <!-- </h1> -->
+
+    <!-- Article Vedette / Dernier article -->
+
+    <div class="article-card col-sd-12 col-md-8" style="background-image: url('<%= @last_article.image.url %>');">
+      <%= link_to article_path(@last_article) do %>
+        <h2 class="title">
+          <%= @last_article.title %>
+        </h2>
+      <% end %>
+      <%= link_to article_path(@last_article) do %>
+        <h3 class="summary">
+          <%= @last_article.summary %>
+        </h3>
+      <% end %>
+      <ul class="categories">
+        <li>
+          <%= @last_article.category %>
+        </li>
+        <li>
+          <%= @last_article.sub_category %>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Top Five article by Views -->
+
+    <div class="top-five col-sd-12 col-md-4">
+      <h2 class="text-center">TOP FIVE</h2>
+      <% i = 0 %>
+        <% @articles.most_hit.each do |article| %>
+          <% i += 1 %>
+          <%= link_to article_path(article) do %>
+            <div class="top-card">
+              <p class="rank text-center">
+                <%= i %>
+              </p>
+              <%= cl_image_tag article.image, class: "thumbnail" %>
+              <h3 class="title">
+                <%= article.title %>
+                <p>vues : <%= article.hits %></p>
+              </h3>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+
+  <!-- List of articles / Last 10 -->
+
+  <div class="row">
+    <% @articles.order(:created_at).reverse.take(6).each do |article| %>
+      <div class="mini-card col-sd-12 col-md-2">
+        <%= cl_image_tag article.image, class: 'image grayscale' %>
+        <p class="category">
+          <%= article.category %>
+        </p>
+        <h2 class="title">
+          <%= article.title %>
+        </h2>
+      </div>
+    <% end %>
+  </div>
+</div>
